@@ -1,24 +1,13 @@
-import React, { Component } from "react";
-
-// class GifList extends Component {
-//   render(props) {
-//     return (
-//       <React.Fragment>
-//         <ul>
-//           {props.gifs.map(gif => (
-//             <li>{gif.images.original.url}</li>
-//           ))}
-//         </ul>
-//       </React.Fragment>
-//     );
-//   }
+import React from "react";
 
 const GifList = props => {
-  debugger;
+  console.log(props.gifs);
   return (
     <ul>
       {props.gifs.map(gif => (
-        <li>{gif.images.original.url}</li>
+        <li key={gif.id}>
+          <img src={gif.images.original.url} alt="gif" />
+        </li>
       ))}
     </ul>
   );
@@ -26,8 +15,11 @@ const GifList = props => {
 
 export default GifList;
 
-{
-  /* <GifList /> is a presentational component.It receives data from it's props 
+/* <GifList /> is a presentational component.It receives data from it's props 
 and renders html given the input data. It can render a top level <ul> with each gif 
 as an <li>. */
-}
+
+// Note: Notice there are many URL keys on each image object.The first url key, just
+// below type, id, and slug will bring you to the images page on[giphy.com][giphy.com].
+// We only want the path to the actual image, which found at images.original.url.
+// Using other url keys may cause CORS issues.

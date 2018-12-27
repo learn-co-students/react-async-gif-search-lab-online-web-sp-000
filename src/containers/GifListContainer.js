@@ -4,35 +4,31 @@ import GifSearch from "../components/GifSearch";
 
 class GifListContainer extends Component {
   state = {
-    gifs: [],
-    searchTerm: ""
+    gifs: []
   };
 
-  componentDidMount(searchTerm) {
+  fetchFunction = searchTerm => {
     fetch(
       `http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=dc6zaTOxFJmzC&rating=g`
     )
       .then(resp => resp.json())
-      .then(({ gifs }) => this.setState({ gifs: gifs }));
-  }
+      .then(({ data }) => {
+        // let data = args.data;
+        this.setState({ gifs: data });
+      });
+  };
 
+  componentDidMount() {
+    this.fetchFunction();
+  }
   // gifs.slice(0,3)
 
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   this.state;
-  // };
-
-  // changeSearchTerm = input => {
-  //   console.log(input.value);
-  //   this.setState({ searchTerm: input.value });
-  // };
-
   render() {
+    // console.log(this.state.gifs);
     return (
       <div>
         <GifList gifs={this.state.gifs} />
-        {/* <GifSearch>changeSearchTerm={this.changeSearchTerm}</GifSearch> */}
+        <GifSearch fetchFunction={this.fetchFunction} />
       </div>
     );
   }
