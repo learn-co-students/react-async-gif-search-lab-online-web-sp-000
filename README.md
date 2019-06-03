@@ -7,7 +7,7 @@ the API is
 
 `http://api.giphy.com/v1/gifs/search?q=YOUR QUERY HERE&api_key=dc6zaTOxFJmzC&rating=g`
 
-![giphy search](https://raw.githubusercontent.com/learn-co-curriculum/react-async-gif-search-lab/master/async.gif)
+<!-- ![giphy search](https://raw.githubusercontent.com/learn-co-curriculum/react-async-gif-search-lab/master/async.gif) -->
 
 On a successful fetch request, you should get back an array of objects, each
 containing information about a particular image.
