@@ -7,12 +7,17 @@ export default class GifListContainer extends React.Component {
     topGifs: []
   }
 
-  componentDidMount() {
-    this.fetchGifs();
+  render(){
+    return (
+      <div>
+        <GifList topGifs={this.state.topGifs} />
+        <GifSearch fetchGifs={this.fetchGifs}/>
+      </div>
+    )
   }
 
-  fetchGifs = (query) => {
-    fetch(`http://api.giphy.com/v1/gifs/search?q=${query}&api_key=dc6zaTOxFJmzC&rating=g`)
+  fetchGifs = (query = 'dogs') => {
+    fetch(`http://api.giphy.com/v1/gifs/search?q=${query}&api_key=dc6zaTOxFJmzC&rating=g&limit=3`)
       .then(response => response.json())
       .then(({data}) => {
         this.setState({
@@ -21,12 +26,7 @@ export default class GifListContainer extends React.Component {
       })
   }
 
-  render(){
-    return (
-      <div>
-        <GifList topGifs={this.state.topGifs} />
-        <GifSearch fetchGifs={this.fetchGifs}/>
-      </div>
-    )
+  componentDidMount() {
+    this.fetchGifs();
   }
 }
