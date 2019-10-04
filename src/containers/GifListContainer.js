@@ -23,6 +23,7 @@ class GifListContainer extends React.Component {
         return(
             <div>
                 <GifList gifs={this.state.gifs} />
+                //<GifListContainer /> should pass down a submit handler function to <GifSearch /> as a prop
                 <GifSearch getGIFs={this.fetchGIFs} />
             </div>
         )
