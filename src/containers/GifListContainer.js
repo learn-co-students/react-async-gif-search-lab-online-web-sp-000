@@ -1,6 +1,6 @@
 import React from "react";
-import GifSearch from "../components/GifSearch";
 import GifList from "../components/GifList";
+import GifSearch from "../components/GifSearch";
 
 class GifListContainer extends React.Component {
 
@@ -26,9 +26,15 @@ class GifListContainer extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<GifSearch searchForGifs={this.searchForGifs} />
-				<GifList gifs={this.state.gifs} />
+			<div className="container-fluid">
+				<div className="row">
+					<div className="col-sm-8">
+						<GifList gifs={this.state.gifs} />
+					</div>
+					<div className="col-sm-4">
+						<GifSearch searchForGifs={this.searchForGifs} />
+					</div>
+				</div>
 			</div>
 		);
 	}

@@ -23,16 +23,19 @@ class GifSearch extends React.Component {
 	render() {
 		return (
 			<form onSubmit={this.handleSubmit}>
-				<label>
-					Enter a Search Term:
-					{" "}
+				<div className="form-group">
+					<label>
+						Enter a Search Term:
+					</label>
 					<input type="text"
+								 className="form-control"
 								 value={this.state.searchTerm}
 								 onChange={this.handleChange} />
-				</label>
-				{" "}
-				<input type="submit"
-							 value="Find Gifs" />
+					<button type="submit"
+								 	className="btn btn-success">
+						Find Gifs
+					</button>
+				</div>
 			</form>
 		);
 	}
