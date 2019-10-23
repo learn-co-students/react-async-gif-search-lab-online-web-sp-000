@@ -2,7 +2,7 @@
 
 ## Instructions
 
-You're going to be building out a Gif search using the Giphy API. In this lab, 
+You're going to be building out a Gif search using the Giphy API. In this lab,
 there are no tests to pass. Rather, your task it create a working app in
 your browser using the instructions below. When finished, you should have an
 application that can take in a user's input, fetch JSON data from the Giphy API,
@@ -15,7 +15,7 @@ The URL for the API is
 ![giphy search](https://raw.githubusercontent.com/learn-co-curriculum/react-async-gif-search-lab/master/async.gif)
 
 On a successful fetch request, you should get back an array of objects, each
-containing information about a particular image.
+containing information about a articular image.
 
 ```js
   "data": [
@@ -69,7 +69,7 @@ is already provided for you, note the project has bootstrap loaded in) and the
 - [Container Components](https://medium.com/@learnreact/container-components-c0e67432e005) Learn React with chantastic
 - [Presentational vs Container Componets](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) Dan Abramov
 
-> **Note**: You may notice that Dan Abramov, one of the original proponents of 
+> **Note**: You may notice that Dan Abramov, one of the original proponents of
 > using Container components, has added a more recent note recommending against them.
 > It is true that there are newer approaches to writing React apps that reduce the
 > need for having components specialize. However, while we're practicing the basics
