@@ -7,11 +7,13 @@ import GifSearch from '../components/GifSearch'
 class GifListContainer extends Component {
 
     state = {
-        gifs: []
+        gifs: [],
+        query: ''
       }
     
-    componentDidMount(){
-        let url = "https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=cDPdz9FpnGmxZpPTLq8ZApNiklCq12fT&rating=g"
+    componentDidUpdate(){
+        let url = "https://api.giphy.com/v1/gifs/search?q=" +this.state.query+"&api_key=cDPdz9FpnGmxZpPTLq8ZApNiklCq12fT&rating=g"
+        console.log(url)
         fetch(url)
         .then(resp => resp.json())
         .then(json => {
@@ -21,13 +23,18 @@ class GifListContainer extends Component {
             console.log(this.state.gifs)   
         });
     }
-    
+    handleQuery = (query) => {
+        this.setState({
+            query: query
+        })
+        console.log("Gift container state: ", query)
+    }
 
 
     render(){
         return(
             <div>
-                <div><GifSearch /></div>
+                <div><GifSearch handleQuery={this.handleQuery}/></div>
                 <div><GifList gifs = {this.state.gifs}/></div>                
             </div>
         )
