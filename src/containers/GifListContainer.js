@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import GifList from '../components/GifList'
 import GifSearch from '../components/GifSearch'
+import '../App.css'
 
 class GifListContainer extends Component {
 
@@ -19,15 +20,14 @@ class GifListContainer extends Component {
         .then(json => {
             this.setState({
                 gifs: json.data.slice(0,3).map(obj => obj.images.original.url)
-            }); 
-            console.log(this.state.gifs)   
+            });   
         });
     }
+
     handleQuery = (query) => {
         this.setState({
             query: query
         })
-        console.log("Gift container state: ", query)
     }
 
 
