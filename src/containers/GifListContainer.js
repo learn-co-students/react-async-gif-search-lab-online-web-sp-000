@@ -11,12 +11,18 @@ class GifListContainer extends Component {
       }
     
     componentDidMount(){
-        this.handleData()
+        let url = "https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=cDPdz9FpnGmxZpPTLq8ZApNiklCq12fT&rating=g"
+        fetch(url)
+        .then(resp => resp.json())
+        .then(json => {
+            this.setState({
+                gifs: json.data.slice(0,3).map(obj => obj.images.original.url)
+            }); 
+            console.log(this.state.gifs)   
+        });
     }
+    
 
-    handleData = ()=>{
-        console.log("in handle data")
-    }
 
     render(){
         return(
