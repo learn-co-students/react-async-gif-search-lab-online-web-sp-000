@@ -17,7 +17,7 @@ The URL for the API is
 `https://api.giphy.com/v1/gifs/search?q=YOUR QUERY HERE&api_key=dc6zaTOxFJmzC&rating=g`
 
 While the above API key _may_ work, we recommend creating your own API key by 
-following the [nstructions on Giphy's developer site][create_key]. Creating a key is free
+following the [instructions on Giphy's developer site][create_key]. Creating a key is free
 and only requires an account. Using your own key will prevent any potential rate limiting if other 
 students are also working on this lesson.
 
@@ -105,7 +105,7 @@ accordingly. The React component is always in charge of what the DOM looks like.
 
 `<GifSearch />` should receive a callback prop from its parent. On a submit
 event, it should invoke that callback prop with the value of the text input. It
-is this callback function, defined in `<GifListContainer />`, that will actually
+is this callback function(fetch), defined in `<GifListContainer />`, that will actually
 query the API with the text the user has entered.
 
 When finished, submit your work using `learn submit`.
