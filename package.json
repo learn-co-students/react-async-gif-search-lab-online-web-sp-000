@@ -32,10 +32,12 @@
   "author": "Ian Candy",
   "license": "MIT",
   "dependencies": {
+    "ajv": "^5.5.2",
     "babel-core": "^6.26.3",
     "babel-preset-airbnb": "^2.5.3",
     "bootstrap": "^3.3.7",
     "jsdom": "^9.9.1",
+    "mocha-multi": "^1.1.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "^1.0.7",
