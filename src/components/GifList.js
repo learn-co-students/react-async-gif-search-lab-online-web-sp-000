@@ -4,6 +4,8 @@ import React, {Component} from 'react'
     //<GifList /> is a *presentational* component. It receives data from its props and renders html given the
     //input data. It can render a top level <ul> with each gif as an <li>.
 
+    //functional component - functional components can still receive props, but is not extending Component so
+    //it cannot store state
     const GifList = props => {
         console.log(props);
 
