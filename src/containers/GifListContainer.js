@@ -1,38 +1,36 @@
 import React from 'react'
 
 import GifList from '../components/GifList'
+import GifSearch from '../components/GifSearch'
 
 class GifListContainer extends React.Component {
-  constructor(){
-    super();
-    this.setState({
-      gifs: []
-    });
+  state = {
+    gifs: [],
+    query: 'lunch'
   }
   componentDidMount() {
-    let that = this;
-    fetch(`https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=lXxOcGN2muL7Dl7JhTxQA1X4zPiajgwG&rating=g`)
+
+    const that = this;
+    fetch(`https://api.giphy.com/v1/gifs/search?q=${this.state.query}&api_key=lXxOcGN2muL7Dl7JhTxQA1X4zPiajgwG&rating=g`)
       .then(response => response.json())
       .then(data => {
         that.setState({
-          gifs: data.data.slice(0, 3)
+          gifs: data.data
         })
       })
   }
 
-  /*
-    shouldComponentUpdate(){
 
-    }
-
-    const submitHandler = () => {
-  <GifSearch submitHandler={submitHandler} />
-
-  }*/
+  sendData = (data) => {
+    this.setState({
+      query: data
+    })
+  }
 
   render() {
     return (
       <div>
+          <GifSearch query={this.state.query} senddata={this.senddata} />
           <GifList gifs={this.state.gifs} />
       </div>
     )
