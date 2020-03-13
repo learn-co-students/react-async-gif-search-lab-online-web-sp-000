@@ -3,17 +3,15 @@ import React from 'react'
 function NavBar(props){
   const colors = {
     black: 'navbar-inverse',
-    white: 'navbar-default'
+    white: 'navbar-header'
   }
   
   return (
     <nav className={`navbar ${colors[props.color]}`}>
       <div className='container-fluid'>
         <div className='navbar-header'>
-          <a className='navbar-brand'>
-            { props.title }
-          </a>
-        </div>
+          Welcome to Gify Search!
+          </div>
       </div>
     </nav>
   )
