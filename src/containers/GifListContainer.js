@@ -30,4 +30,4 @@ class GifListContainer extends Component {
   }
 }
 
-export default 
+export default GifListContainer
