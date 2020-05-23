@@ -17,14 +17,6 @@ class GifListContainer extends Component {
         })
     }
 
-    // componentDidMount() {
-    //     let endpoint = 'https://api.giphy.com/v1/gifs/search?q=money&api_key=dc6zaTOxFJmzC&rating=g'
-    //     fetch(endpoint)
-    //     .then(response => response.json())
-    //     .then(obj => this.handleData(obj.data))
-    //     .catch(error => console.log(error))
-    // }
-
     handleData = (arr) => {
         let urls = []
 
