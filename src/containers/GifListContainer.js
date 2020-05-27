@@ -6,24 +6,21 @@ export default class GifListContainer extends React.Component {
 
     constructor(props) {
         super(props)
-        // this.state = { text: "" }
-        this.state = { gifs: [] }
+        this.state = { 
+            gifs: [] 
+        }
     }
 
-    handleSubmit(event) {
-        // this.setState({
-        //     text: event.target.value
-        // })
-        let text = event.target.value
-        let url = 'https://api.giphy.com/v1/gifs/search?q='
-        let api = '&api_key=dc6zaTOxFJmzC&rating=g'
+    handleSearch = (query) => {
+        const url = `http://api.giphy.com/v1/gifs/search?q=${query}&api_key=dc6zaTOxFJmzC&rating=g`
 
-        fetch(url + text + api)
+        fetch(url)
         .then(res => res.json())
         .then(data => {
-            let topThreeGifs = data.slice(0, 3)
+            let allGifs = data.data.map(i => ({url: i.images.original.url}))
+            let topThree = allGifs.slice(0, 3)
             this.setState ({
-                gifs: topThreeGifs.images.original.url
+                gifs: topThree
             })
         })  
     }
@@ -31,8 +28,8 @@ export default class GifListContainer extends React.Component {
     render() {
         return(
             <div>
-                <GifSearch handleSubmit={this.handleSubmit} />
-                <GifList gifsList={this.state.gifs} />
+                <GifSearch handleSearch={this.handleSearch} />
+                <GifList gifs={this.state.gifs} />
             </div>
         )
     }

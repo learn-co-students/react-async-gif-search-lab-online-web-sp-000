@@ -3,12 +3,18 @@ import React from 'react';
 export default class GifList extends React.Component {
 
     render() {
-        const createList = this.props.gifsList.map(gif => <li>{gif}</li>)
+        const createList = () => {
+            return this.props.gifs.map(gif => (
+                <li>
+                    <img src={gif.url} alt='' />
+                </li>
+            ))
+        }
 
         return(
             <div>
                 <ul>
-                    {createList}
+                    {createList()}
                 </ul>
             </div>
         )
