@@ -6,8 +6,9 @@ import NavBar from './NavBar'
 
 const App = () => {
   return (
-    <div>
-        < NavBar color='black' title="Giphy Search" />
+    <div className="container">
+        <NavBar color='black' title="Giphy Search" />
+        <GifListContainer />
     </div>
   )
 }
