@@ -9,6 +9,14 @@ class GifListContainer extends React.Component {
   state = {
     gifs: []
   }
+  render() {
+    return (
+      <div>
+        <GifSearch submitHandler={this.handleSearchSubmit} />
+        <GifList gifs={this.state.gifs} />
+      </div>
+    )
+  }
 
   handleSearchSubmit = (searchTerm) => {
     fetch(`https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=0AJYYnyvyKHCcTHsQtNoSOkUjT9VfxDK&rating=g`)
@@ -19,16 +27,6 @@ class GifListContainer extends React.Component {
         })
       })
   }
-
-  render() {
-    return (
-      <div>
-        <GifSearch submitHandler={this.handleSearchSubmit} />
-        <GifList gifs={this.state.gifs} />
-      </div>
-    )
-  }
-
 }
 
 export default GifListContainer
