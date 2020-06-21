@@ -27,20 +27,22 @@ class GifListContainer extends Component {
   }
 
   handleSubmit = (e, mySubmitTerm) => {
+    console.log(mySubmitTerm.searchTerm);
     e.preventDefault();
-    console.log(mySubmitTerm);
-    // event.preventDefault();
-    // this.setState({
-    //   searchTerm: mySubmitTerm
-    // });
-    // this.makeGifSearchRequest();
+    this.setState({
+      searchTerm: mySubmitTerm.searchTerm
+    });
+  }
+
+  componentDidUpdate() {
+    this.makeGifSearchRequest()
   }
 
   render() {
     return (
       <div>
         <div>
-          <GifSearch submitFunction={this.handleSubmit}/>
+          <GifSearch handleSubmit={this.handleSubmit}/>
         </div>
         <div>
           <GifList gifs={this.state.gifs} />
