@@ -7,7 +7,6 @@ class GifListContainer extends Component {
   constructor() {
     super()
     this.state = {
-      searchTerm: "random",
       gifs: []
     }
   }
@@ -16,8 +15,8 @@ class GifListContainer extends Component {
     this.makeGifSearchRequest()
   }
 
-  makeGifSearchRequest = () => {
-    fetch(`https://api.giphy.com/v1/gifs/search?q=${this.state.searchTerm}&api_key=dc6zaTOxFJmzC&rating=g`)
+  makeGifSearchRequest = (mySearchTerm = 'random') => {
+    fetch(`https://api.giphy.com/v1/gifs/search?q=${mySearchTerm}&api_key=dc6zaTOxFJmzC&rating=g`)
     .then(resp => resp.json())
     .then(resp => {
       this.setState({
@@ -27,15 +26,8 @@ class GifListContainer extends Component {
   }
 
   handleSubmit = (e, mySubmitTerm) => {
-    console.log(mySubmitTerm.searchTerm);
     e.preventDefault();
-    this.setState({
-      searchTerm: mySubmitTerm.searchTerm
-    });
-  }
-
-  componentDidUpdate() {
-    this.makeGifSearchRequest()
+    this.makeGifSearchRequest(mySubmitTerm.searchTerm);
   }
 
   render() {

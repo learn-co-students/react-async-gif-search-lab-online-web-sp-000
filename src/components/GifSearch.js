@@ -16,7 +16,11 @@ class GifSearch extends Component {
 
   render() {
     return (
-      <form onSubmit={(e) => {this.props.handleSubmit(e, this.state)}}>
+      <form onSubmit={(e) => {
+        this.props.handleSubmit(e, this.state);
+        this.setState({searchTerm: ""})
+        }
+      }>
         <label>
           Enter a search term:
         </label>
