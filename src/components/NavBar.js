@@ -1,4 +1,6 @@
 import React from 'react'
+import GifListContainer from '../containers/GifListContainer'
+
 
 function NavBar(props){
   const colors = {
@@ -15,6 +17,7 @@ function NavBar(props){
           </a>
         </div>
       </div>
+      <GifListContainer />
     </nav>
   )
 }
