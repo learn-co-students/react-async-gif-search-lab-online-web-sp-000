@@ -11,7 +11,7 @@ class GifListContainer extends React.Component {
         }
     }
 
-    fetchGifs = (animal = "dogs") => {
+    fetchGifs(animal = "dogs") {
         fetch(`https://api.giphy.com/v1/gifs/search?q=${animal}&api_key=AtfsEAlf6BDVYfm39rvnjN01ZXzPmzzg&rating=g&limit=3`)
             .then(resp => resp.json())
             .then(gif => () => {
