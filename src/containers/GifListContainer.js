@@ -11,13 +11,16 @@ class GifListContainer extends React.Component {
         }
     }
 
-    fetchGifs(animal = "dogs") {
+    // state = {
+    //     gifs: []
+    // }
+
+    fetchGifs = (animal = "dogs") => {
         fetch(`https://api.giphy.com/v1/gifs/search?q=${animal}&api_key=AtfsEAlf6BDVYfm39rvnjN01ZXzPmzzg&rating=g&limit=3`)
             .then(resp => resp.json())
-            .then(gif => () => {
-                for(let i = 0; i < 3; i++) {
-                    this.setState({ gifs: [...this.state.gifs, gif.data[i].images.original.url ]})
-                }
+            .then(gif => {
+                let array = gif.data.map(element => element.images.original.url)
+                this.setState({gifs: array})
             })
     }
 
@@ -26,9 +29,9 @@ class GifListContainer extends React.Component {
     }
 
     render(){
+        console.log("Inside GifListContainer: ", this.state.gifs);
         return(
             <div>
-                <h1>Text</h1>
                 <GifList firstThree={this.state.gifs} />
                 <GifSearch fetchGifs={this.fetchGifs} />
             </div>

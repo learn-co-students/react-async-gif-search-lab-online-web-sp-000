@@ -8,7 +8,6 @@ import GifListContainer from '../containers/GifListContainer'
 const App = () => {
   return (
     <div>
-        <h1>hello</h1>
         < NavBar color='black' title="Giphy Search" />
         <GifListContainer />
     </div>
