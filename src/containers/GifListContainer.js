@@ -8,7 +8,7 @@ export default class GifListContainer extends Component {
         gifs: []
     }
 
-    submitHandler = (query = "dolphin") => {
+    submitHandler = () => {
         this.fetchGifs()
     }
 
@@ -18,15 +18,13 @@ export default class GifListContainer extends Component {
         )
     }
 
-    fetchGifs() {
-        fetch("https://api.giphy.com/v1/gifs/search?q=YOUR QUERY HERE&api_key=dc6zaTOxFJmzC&rating=g")
-        .then(resp => resp.json())
-        .then(data => {
-            this.setState({
-                gifs: data.data.map(gifs => gifs.images.original.url)
-            })
-        })
-    }
+    fetchGifs = (query = "dolphins") => {
+        fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=dc6zaTOxFJmzC&rating=g&limit=3`)
+          .then(res => res.json())
+          .then(({data}) => {
+            this.setState({ gifs: data.map( gif => ({ url: gif.images.original.url }) ) })
+          })
+      }
 
 
 
