@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import GifList from "../components/GifList.js"
+import GifSearch from "../components/GifSearch.js"
 
 export default  class GifListContainer extends React.Component{
 
@@ -15,21 +16,22 @@ state = {
   }
   ]
 
-}
+} 
 
 
 render () {
 return (
 <div>
 <GifList gifs={this.state.gifs}/>
+<GifSearch apI={this.apI}/>
 
 
  </div>
 )
 
 }
- componentDidMount() {
- fetch('https://api.giphy.com/v1/gifs/search?q=YOUR QUERY HERE&api_key=dc6zaTOxFJmzC&rating=g&limit=3')
+   apI = () =>  {
+  fetch('https://api.giphy.com/v1/gifs/search?q=YOUR QUERY HERE&api_key=dc6zaTOxFJmzC&rating=g&limit=3')
  .then(response => response.json())
  .then(({data}) => {
      this.setState({
@@ -40,6 +42,11 @@ return (
          ) 
      })
  })
+
+ }
+
+ componentDidMount() {
+ this.apI()
  }
 
 
