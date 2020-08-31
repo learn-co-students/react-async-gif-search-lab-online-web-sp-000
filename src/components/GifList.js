@@ -9,5 +9,5 @@ function GifList(props) {
         </ul>
     )
 }
-
-export default GifList
+//
+export default GifList 
