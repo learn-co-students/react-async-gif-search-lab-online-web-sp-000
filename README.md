@@ -8,6 +8,7 @@
 
 
 
+
 ## Questions
 
 - ComponentDidUpdate
@@ -17,7 +18,7 @@
 
 ## Instructions
 
-You're going to be building out a Gif search using the Giphy API. In this lab, 
+You're going to be building out a Gif search using the Giphy API. In this lab,
 there are no tests to pass. Rather, your task is to create a working app in
 your browser using the instructions below. When finished, you should have an
 application that can take in a user's input, fetch JSON data from the Giphy API,
@@ -31,9 +32,9 @@ The URL for the API is
 
 `https://api.giphy.com/v1/gifs/search?q=YOUR QUERY HERE&api_key=dc6zaTOxFJmzC&rating=g`
 
-While the above API key _may_ work, we recommend creating your own API key by 
+While the above API key _may_ work, we recommend creating your own API key by
 following the [nstructions on Giphy's developer site][create_key]. Creating a key is free
-and only requires an account. Using your own key will prevent any potential rate limiting if other 
+and only requires an account. Using your own key will prevent any potential rate limiting if other
 students are also working on this lesson.
 
 [create_key]: https://developers.giphy.com/docs/api/#quick-start-guide
@@ -130,7 +131,7 @@ When finished, submit your work using `learn submit`.
 - [Container Components](https://medium.com/@learnreact/container-components-c0e67432e005) Learn React with chantastic
 - [Presentational vs Container Componets](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) Dan Abramov
 
-> **Note**: You may notice that Dan Abramov, one of the original proponents of 
+> **Note**: You may notice that Dan Abramov, one of the original proponents of
 > using Container components, has added a more recent note recommending against them.
 > It is true that there are newer approaches to writing React apps that reduce the
 > need for having components specialize. However, while we're practicing the basics
