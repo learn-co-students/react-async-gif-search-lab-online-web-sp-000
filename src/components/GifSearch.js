@@ -1,19 +1,23 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-class GifSearch extends React.Component {
+export default class GifSearch extends Component {
+    constructor(props) {
+        super(props)
 
-    state = {
+        this.state = {
         searchTerm: ""
     }
-
-    changeHandler = (e) => {
+    
+    this.changeHandler = (e) => {
         this.setState({ searchTerm: e.target.value })
     }
 
-    submitHandler = (e) => {
+    this.submitHandler = (e) => {
         e.preventDefault()
         this.props.submitHandler(this.state.searchTerm)
         this.setState({ searchTerm: "" })
+    }
+
     }
     render() {
         return (
@@ -27,4 +31,3 @@ class GifSearch extends React.Component {
 }
 
 
-export default GifSearch
