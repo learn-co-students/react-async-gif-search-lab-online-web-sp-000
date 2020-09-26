@@ -11,3 +11,7 @@ function GifList(props) {
 }
 
 export default GifList
+
+
+//presentational component
+//receives data from its props and renders html given input data 
