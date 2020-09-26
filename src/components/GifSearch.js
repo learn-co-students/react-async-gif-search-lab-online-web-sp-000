@@ -1,7 +1,7 @@
 import React from 'react'
 
 class GifSearch extends React.Component {
-
+    
     state = {
         searchTerm: ""
     }
@@ -17,10 +17,12 @@ class GifSearch extends React.Component {
     }
     render() {
         return (
-
-            <form onSubmit={this.submitHandler}>
-                <input type="text" placeholder="search" value={this.state.searchTerm} onChange={this.changeHandler} />
-                <input type="submit" value="search" />
+            <form class='search' onSubmit={this.submitHandler}>
+                <h5>Enter a Search Term: </h5>
+                <input type="text" class="searchBox" placeholder="Search GIFs" value={this.state.searchTerm} onChange={this.changeHandler} />
+                <br></br>
+                <br></br>
+                <button type="submit" class="submit" onclick={this.submitHandler}>Find GIFs</button>
             </form>
         )
     }
