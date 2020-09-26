@@ -1,7 +1,7 @@
 import React from 'react'
 
 function GifList(props) {
-    let gifArray = props.gifs.map((gifObj) => <li><img src={gifObj.images.original.url} /></li>)
+    let gifArray = props.gifs.map((gifObj, idx) => <li key={idx}><img src={gifObj.images.original.url} alt="" /></li>)
     console.log("gif array: ", gifArray)
     return (
         <ul>

@@ -15,9 +15,9 @@ class GifSearch extends React.Component {
         this.props.submitHandler(this.state.searchTerm)
         this.setState({ searchTerm: "" })
     }
+    
     render() {
         return (
-
             <form onSubmit={this.submitHandler}>
                 <input type="text" placeholder="search" value={this.state.searchTerm} onChange={this.changeHandler} />
                 <input type="submit" value="search" />
