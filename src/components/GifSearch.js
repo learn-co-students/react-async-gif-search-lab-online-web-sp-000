@@ -28,3 +28,7 @@ class GifSearch extends React.Component {
 
 
 export default GifSearch
+
+//render form that receives user input for the giphy search 
+//text input should be a controlled component 
+//receive callback prop from its parent on a submit event should invoke callback prop with the value of the text input 
