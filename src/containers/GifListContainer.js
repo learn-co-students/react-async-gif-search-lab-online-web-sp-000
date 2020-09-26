@@ -38,3 +38,10 @@ class GifListContainer extends Component {
 }
 
 export default GifListContainer
+
+//data fetching 
+//renders corresponding sub component
+//fetching data from giphy api 
+//stores first 3 gifs from response component state
+//passing data down to child, giftlist 
+//render giftsearch component that renders the form 
