@@ -1,0 +1,26 @@
+.gifList{
+    position: relative;
+    bottom: 50px;
+}
+
+.search{
+    position: relative;
+    left: 1100px;
+}
+
+.searchBox{
+    width: 250px;
+    height: 30px;
+}
+
+button {
+    background-color: #4caf4f;
+    color:white;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+
+button{
+    cursor: pointer;
+}
