@@ -33,3 +33,4 @@ jspm_packages
 .results.json
 
 file.env
+env.js
