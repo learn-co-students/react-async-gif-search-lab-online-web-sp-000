@@ -16,6 +16,7 @@ function NavBar(props){
         </div>
       </div>
     </nav>
+
   )
 }
 
