@@ -1,15 +1,12 @@
-import React, { Component } from "react";
+import React from 'react'
 
 class GifList extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
       <ul>
-        {this.props.data.map((d) => (<li><img src={d.url}/></li>))}
+        {this.props.data.map((u)=> (<li><img src={u.url}/></li>))}
       </ul>
     )
   }
