@@ -1,4 +1,4 @@
-# Giphy Search!
+## Giphy Search!
 
 ### Instructions
 
