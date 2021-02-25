@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import GifList from '../components/GifList';
+import GifSearch from '../components/GifSearch';
 
 export default class GifListContainer extends Component {
 
@@ -9,14 +11,22 @@ export default class GifListContainer extends Component {
     render(){
         return(
             <div>
-                {this.state.gifs.map(gif => <li>{gif.url}</li>)}
+                <GifSearch fetchGIFS={this.fetchGIFS} />
+                <GifList gifs = {this.state.gifs} /> 
             </div>
         )
     }
 
-    componentDidMount(){
-        fetch('https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=xO3iOqmjxjVcD24hvzOVIyTr266uWKRp&rating=g')
-        .then(response => response.json())
-        .then(data => {this.setState({gifs: data.url})})
+    fetchGIFS=(query) => {
+        fetch('https://api.giphy.com/v1/gifs/search?q=dog&api_key=xO3iOqmjxjVcD24hvzOVIyTr266uWKRp&rating=g')
+        .then(res => res.json())
+        .then(({data}) => {
+            this.setState({gifs: data.map( gif => ({url: gif.images.original.url}) ) })
+        })
     }
+
+    componentDidMount(){
+        this.fetchGIFS()
+    }
+
 }
