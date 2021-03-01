@@ -4,9 +4,18 @@ class GifList extends Component {
    render() {
       return (
          <div>
-            {console.log(this.props.data)}
+            <ul className='gifs-list'>
+               {console.log(this.props.data)}
+               {this.renderGifs()}
+            </ul>
          </div>
       )
+   }
+
+   renderGifs = () => {
+      return this.props.data.map(gif => {
+         return <li><img src={gif.images.original.url} /></li>
+      })
    }
 }
 

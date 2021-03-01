@@ -11,6 +11,7 @@ class GifListContainer extends Component {
       return (
          <div>
             <GifList data={this.state.data}  />
+            <GifSearch handleOnSubmit={this.handleSubmit} />
          </div>
       )
    }
@@ -20,9 +21,11 @@ class GifListContainer extends Component {
          'search?q=YOUR QUERY HERE&api_key=dc6zaTOxFJmzC&rating=g'
       fetch(gifDataUrl)
          .then(res => res.json())
-         .then(gifData => {
+         .then(gifs => {
             this.setState({
-               data: gifData.data
+               data: [gifs.data[0], 
+                      gifs.data[1], 
+                      gifs.data[2]]
             })
          })
 
