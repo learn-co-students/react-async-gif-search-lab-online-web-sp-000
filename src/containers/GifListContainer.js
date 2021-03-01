@@ -14,34 +14,12 @@ class GifListContainer extends Component {
    handleSubmit = (event, value) => {
       event.preventDefault()
       this.fetchGifs(value)
-      // this.fetchGifs()
    }
 
-   // queryGif = value => {
-      // const gifDataUrl = `https://api.giphy.com/v1/gifs/` +
-      // `search?q=${value}&api_key=dc6zaTOxFJmzC&rating=g`
-   //    fetch(gifDataUrl)
-   //       .then(res => res.json())
-   //       .then(gif => {
-   //          // debugger
-   //          console.log(gif.data)
-   //          this.setState({
-   //             data: [gif.data[0], 
-   //                    gif.data[1], 
-   //                    gif.data[2]]
-   //          })
-   //       })
-   // }
-
    fetchGifs = (value) => {
-      let gifDataUrl
-      if (value) {
-         gifDataUrl = `https://api.giphy.com/v1/gifs/` +
-         `search?q=${value}&api_key=dc6zaTOxFJmzC&rating=g`
-      } else {
-         gifDataUrl = 'https://api.giphy.com/v1/gifs/' +
-         'search?q=YOUR QUERY HERE&api_key=dc6zaTOxFJmzC&rating=g'
-      }
+      const gifDataUrl = `https://api.giphy.com/v1/gifs/` +
+      `search?q=${value}&api_key=SgGDpcsp6NlDcDItq1rBK37VaXOqf30q&rating=g`
+
       fetch(gifDataUrl)
          .then(res => res.json())
          .then(gifs => {
@@ -58,7 +36,6 @@ class GifListContainer extends Component {
          <div>
             <GifSearch handleOnSubmit={this.handleSubmit} />
             <GifList data={this.state.data}  />
-            {/* <GifSearch handleOnSubmit={this.handleSubmit} /> */}
          </div>
       )
    }
