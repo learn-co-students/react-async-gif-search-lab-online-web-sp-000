@@ -13,29 +13,35 @@ class GifListContainer extends Component {
 
    handleSubmit = (event, value) => {
       event.preventDefault()
-      this.queryGif(value)
+      this.fetchGifs(value)
       // this.fetchGifs()
    }
 
-   queryGif = value => {
-      const gifDataUrl = `https://api.giphy.com/v1/gifs/` +
-      `search?q=${value}&api_key=dc6zaTOxFJmzC&rating=g`
-      fetch(gifDataUrl)
-         .then(res => res.json())
-         .then(gif => {
-            // debugger
-            console.log(gif.data)
-            this.setState({
-               data: [gif.data[0], 
-                      gif.data[1], 
-                      gif.data[2]]
-            })
-         })
-   }
+   // queryGif = value => {
+      // const gifDataUrl = `https://api.giphy.com/v1/gifs/` +
+      // `search?q=${value}&api_key=dc6zaTOxFJmzC&rating=g`
+   //    fetch(gifDataUrl)
+   //       .then(res => res.json())
+   //       .then(gif => {
+   //          // debugger
+   //          console.log(gif.data)
+   //          this.setState({
+   //             data: [gif.data[0], 
+   //                    gif.data[1], 
+   //                    gif.data[2]]
+   //          })
+   //       })
+   // }
 
-   fetchGifs = () => {
-      const gifDataUrl = 'https://api.giphy.com/v1/gifs/' +
+   fetchGifs = (value) => {
+      let gifDataUrl
+      if (value) {
+         gifDataUrl = `https://api.giphy.com/v1/gifs/` +
+         `search?q=${value}&api_key=dc6zaTOxFJmzC&rating=g`
+      } else {
+         gifDataUrl = 'https://api.giphy.com/v1/gifs/' +
          'search?q=YOUR QUERY HERE&api_key=dc6zaTOxFJmzC&rating=g'
+      }
       fetch(gifDataUrl)
          .then(res => res.json())
          .then(gifs => {
