@@ -7,21 +7,29 @@ class GifListContainer extends Component{
     state = {
         gifs: []
     }
-    // componentDidMount(){
-    //     this.handleFetch()
-    //     console.log(this.state.gifs)
-    // }
+    componentDidMount(){
+        this.handleFetch()
+        console.log(this.state.gifs)
+    }
     handleFetch = (val) =>{
+
         const searchURL = `https://api.giphy.com/v1/gifs/search?q=${val}&api_key=dc6zaTOxFJmzC&rating=g`
-        console.log(searchURL)
+        // console.log(searchURL)
         fetch(searchURL)
         .then(resp => resp.json())
         .then(data => {
             let dataSet = data.data
+            console.log(data)
             console.log(dataSet)
             this.setState({
-                gifs: dataSet
+                gifs: [
+                    dataSet[0],
+                    dataSet[1],
+                    dataSet[2]
+                ]
+
             })
+            // console.log(this.state.gifs)
         })
     }
 
