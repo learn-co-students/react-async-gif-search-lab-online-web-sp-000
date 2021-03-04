@@ -1,18 +1,26 @@
 import React, {Component} from 'react'
+import GifList from '../components/GifList'
+import GifSearch from '../components/GifSearch'
 
-class GifListContainer extends React.Component{
+class GifListContainer extends Component{
 
     state = {
         gifs: []
     }
-
-    componentDidMount(){
-        const searchURL = 'https://api.giphy.com/v1/gifs/search?q=fish&api_key=dc6zaTOxFJmzC&rating=g'
+    // componentDidMount(){
+    //     this.handleFetch()
+    //     console.log(this.state.gifs)
+    // }
+    handleFetch = (val) =>{
+        const searchURL = `https://api.giphy.com/v1/gifs/search?q=${val}&api_key=dc6zaTOxFJmzC&rating=g`
+        console.log(searchURL)
         fetch(searchURL)
-        .then(resp => resp.json)
+        .then(resp => resp.json())
         .then(data => {
+            let dataSet = data.data
+            console.log(dataSet)
             this.setState({
-                gifs: data.original
+                gifs: dataSet
             })
         })
     }
@@ -20,7 +28,8 @@ class GifListContainer extends React.Component{
     render(){
         return (
             <div>
-                <GifList />
+                <GifSearch handleFetch={this.handleFetch} />
+                <GifList gifs={this.state.gifs}/>
             </div>
         )
     }
