@@ -29,7 +29,7 @@ class GifListContainer extends Component{
                 ]
 
             })
-            // console.log(this.state.gifs)
+            console.log(this.state.gifs)
         })
     }
 
