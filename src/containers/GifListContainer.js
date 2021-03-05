@@ -26,7 +26,7 @@ class GifListContainer extends Component{
                     dataSet[0],
                     dataSet[1],
                     dataSet[2]
-                ]
+                ] //collect and assign the first 3 gifs to gifs, replace with gifs: dataSet to capture all the gifs
 
             })
             console.log(this.state.gifs)
