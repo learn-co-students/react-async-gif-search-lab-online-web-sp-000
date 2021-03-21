@@ -7,9 +7,18 @@ class GifListContainer extends Component {
   }
 
   // api key: jOMtQ6RtYodYwdW619h4a3QVR7titjO0
+  
+  componentDidMount() {
+    this.getGifList()
+  }
 
   getGifList(query = 'lebron james') {
-    fetch()
+    fetch( `https://api.giphy.com/v1/gifs/search?q=${query}&api_key=jOMtQ6RtYodYwdW619h4a3QVR7titjO0` )
+    .then(resp => resp.json())
+      .then((data) => {
+
+        this.setState({gifList: data.map( gif => ({ url: gif.images.original.url }) )})
+    })
   }
 }
 
