@@ -15,7 +15,7 @@ class GifListContainer extends Component {
   }
 
   getGifList = (query = 'lebron james') => {
-    fetch( `https://api.giphy.com/v1/gifs/search?q=${query}&api_key=jOMtQ6RtYodYwdW619h4a3QVR7titjO0` )
+    fetch( `https://api.giphy.com/v1/gifs/search?q=${query}&api_key=jOMtQ6RtYodYwdW619h4a3QVR7titjO0&limit=3` )
     .then(resp => resp.json())
       .then(({data}) => {
 
