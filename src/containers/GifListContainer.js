@@ -4,8 +4,8 @@ import GifSearch from '../components/GifSearch'
 
 export default class GifListContainer extends Component {
     constructor(props) {
-        super() 
-        this.state = { top3 : [] }
+        super(props) 
+        this.state = { top3: [] }
     }
     
     componentDidMount() {
@@ -17,9 +17,8 @@ export default class GifListContainer extends Component {
         }))
     }
 
-    handleFormSubmit(state) {
-        console.log(state.searchTerms)
-        fetch(`https://api.giphy.com/v1/gifs/search?q=${state.searchTerms}&api_key=dc6zaTOxFJmzC&rating=g`)
+    fetchGifs = (terms) => {
+        fetch(`https://api.giphy.com/v1/gifs/search?q=${terms}&api_key=dc6zaTOxFJmzC&rating=g`)
         .then(resp => resp.json())
         .then(json => this.setState({
             top3: json.data.slice(0,3)
@@ -29,7 +28,7 @@ export default class GifListContainer extends Component {
     render() {
         return <div>
             < GifList gifs={this.state.top3}/>
-            < GifSearch onFormSubmit={this.handleFormSubmit}/>
+            < GifSearch fetchGifs={this.fetchGifs}/>
         </div>
     }
 }
