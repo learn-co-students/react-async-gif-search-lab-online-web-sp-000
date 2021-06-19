@@ -28,7 +28,7 @@ class GifListContainer extends Component {
         this.setState({
           gifs: data.images.original.url
           // Need just the first 3:
-          // .slice(0,3)?
+          // gifs: data.images.original.url.slice(0,3)?
         })
       })
   }
