@@ -13,13 +13,7 @@ class GifListContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=8w7oPHCJgwHO14SigUuBCYyGlpecBiou&rating=g')
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          gifs: data.images.original.url
-        })
-      })
+    this.fetchGifs()
   }
 
   // It will also render a <GifSearch /> component that 
@@ -27,15 +21,23 @@ class GifListContainer extends Component {
 
   // <GifListContainer /> should pass down a submit handler
   //  function to <GifSearch /> as a prop.
-  handleSubmit = () => {
-
+  fetchGifs = (term) => {
+    fetch('https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=8w7oPHCJgwHO14SigUuBCYyGlpecBiou&rating=g')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          gifs: data.images.original.url
+          // Need just the first 3:
+          // .slice(0,3)?
+        })
+      })
   }
 
   render() {
     return (
       <div>
-        < GifList />
-        < GifSearch onSubmit={this.handleSubmit} />
+        < GifList gifs={this.state.gifs}/>
+        < GifSearch fetchGifs={this.fetchGifs} />
       </div>
     )
   }
