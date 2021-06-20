@@ -21,12 +21,15 @@ class GifListContainer extends Component {
 
   // <GifListContainer /> should pass down a submit handler
   //  function to <GifSearch /> as a prop.
-  fetchGifs = (term) => {
+  fetchGifs = (searchTerm) => {
     fetch('https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=8w7oPHCJgwHO14SigUuBCYyGlpecBiou&rating=g')
       .then(response => response.json())
       .then(data => {
         this.setState({
           gifs: data.images.original.url
+          // gifs: data.map(gif => ({
+          //   url: gif.images.original.url
+          // }))
           // Need just the first 3:
           // gifs: data.images.original.url.slice(0,3)?
         })
