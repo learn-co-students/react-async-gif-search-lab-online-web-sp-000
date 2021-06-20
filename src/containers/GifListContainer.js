@@ -13,7 +13,20 @@ class GifListContainer extends Component {
   }
 
   componentDidMount() {
-    this.fetchGifs()
+    // this.fetchGifs()
+    fetch('https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=8w7oPHCJgwHO14SigUuBCYyGlpecBiou&rating=g')
+      .then(response => response.json())
+      .then(data => {
+        // console.log(data.map(gif => (gif.images.original.url))
+        this.setState({
+          gifs: data.images
+          // gifs: data.map(gif => ({
+          //   url: gif.images.original.url
+          // }))
+          // Need just the first 3:
+          // gifs: data.images.original.url.slice(0,3)
+        })
+      })
   }
 
   // It will also render a <GifSearch /> component that 
@@ -21,17 +34,18 @@ class GifListContainer extends Component {
 
   // <GifListContainer /> should pass down a submit handler
   //  function to <GifSearch /> as a prop.
-  fetchGifs = (searchTerm) => {
+  fetchGifs = (searchTerm='dog') => {
     fetch('https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=8w7oPHCJgwHO14SigUuBCYyGlpecBiou&rating=g')
       .then(response => response.json())
       .then(data => {
+        console.log(data)
         this.setState({
-          gifs: data.images.original.url
+          // gifs: data.images.original.url
           // gifs: data.map(gif => ({
           //   url: gif.images.original.url
           // }))
           // Need just the first 3:
-          // gifs: data.images.original.url.slice(0,3)?
+          gifs: data.images.original.url.slice(0,3)
         })
       })
   }

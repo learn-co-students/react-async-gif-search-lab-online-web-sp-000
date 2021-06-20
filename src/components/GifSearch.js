@@ -25,7 +25,7 @@ class GifListContainer extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type='text' value={this.state.searchTerm}></input>
+        <input type='text' value={this.state.searchTerm} ></input>
       </form>
     )
   }
