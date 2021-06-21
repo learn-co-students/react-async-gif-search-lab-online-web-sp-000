@@ -16,15 +16,9 @@ class GifListContainer extends Component {
     // this.fetchGifs()
     fetch('https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=8w7oPHCJgwHO14SigUuBCYyGlpecBiou&rating=g')
       .then(response => response.json())
-      .then(data => {
-        // console.log(data.map(gif => (gif.images.original.url))
+      .then(json => {
         this.setState({
-          gifs: data.images
-          // gifs: data.map(gif => ({
-          //   url: gif.images.original.url
-          // }))
-          // Need just the first 3:
-          // gifs: data.images.original.url.slice(0,3)
+          gifs: json.data.slice(0,3)
         })
       })
   }
@@ -34,18 +28,12 @@ class GifListContainer extends Component {
 
   // <GifListContainer /> should pass down a submit handler
   //  function to <GifSearch /> as a prop.
-  fetchGifs = (searchTerm='dog') => {
+  fetchGifs = (searchTerm) => {
     fetch('https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=8w7oPHCJgwHO14SigUuBCYyGlpecBiou&rating=g')
       .then(response => response.json())
-      .then(data => {
-        console.log(data)
+      .then(json => {
         this.setState({
-          // gifs: data.images.original.url
-          // gifs: data.map(gif => ({
-          //   url: gif.images.original.url
-          // }))
-          // Need just the first 3:
-          gifs: data.images.original.url.slice(0,3)
+          gifs: json.data.slice(0,3)
         })
       })
   }
@@ -53,8 +41,8 @@ class GifListContainer extends Component {
   render() {
     return (
       <div>
-        < GifList gifs={this.state.gifs}/>
         < GifSearch fetchGifs={this.fetchGifs} />
+        < GifList gifs={this.state.gifs}/>
       </div>
     )
   }

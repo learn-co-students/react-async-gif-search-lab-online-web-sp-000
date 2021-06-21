@@ -22,10 +22,16 @@ class GifListContainer extends Component {
     this.props.fetchGifs(this.state.searchTerm)
   }
 
+  handleOnChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type='text' value={this.state.searchTerm} ></input>
+        Search:<input type='text' name='searchTerm' value={this.state.searchTerm} onChange={event => this.handleOnChange(event)}></input>
       </form>
     )
   }

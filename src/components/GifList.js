@@ -8,7 +8,7 @@ class GifList extends Component {
   render() {
     return (
       <ul>
-        {this.props.gifs.map(gif => <li><img key={gif.id} src={gif.url} alt="gif"/></li>)}
+        {this.props.gifs.map((gif, id) => <li><img key={id} src={gif.images.original.url} alt="gif"/></li>)}
       </ul>
     )
   }
